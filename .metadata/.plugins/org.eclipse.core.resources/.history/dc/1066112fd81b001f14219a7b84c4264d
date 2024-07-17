@@ -1,0 +1,36 @@
+
+public class Student {
+	int bun;//번호
+	String name;//이름
+	int kor;//국어
+	int eng;//영어
+	int mat;//수학
+	int tot;//총점
+	double ave;//평균
+	
+	//입력
+	void stuInput(int bun, String name, int kor, int eng, int mat) {
+		this.bun=bun;
+		this.name=name;
+		this.kor=kor;
+		this.eng=eng;
+		this.mat=mat;
+	}
+	//총점, 평균계산 메소드
+	void totAve() {
+		tot = kor + eng + mat;
+		ave = tot / 3.0;
+	}
+	//출력
+	void stuOutput() {
+		System.out.println("번호\t이름\t국어\t영어\t수학\t총점\t평균");
+		System.out.print(bun + "\t");
+		System.out.print(name + "\t");
+		System.out.print(kor + "\t");
+		System.out.print(eng + "\t");
+		System.out.print(mat + "\t");
+		System.out.print(tot + "\t");
+		System.out.print(ave + "\n");
+
+	}
+}

@@ -1,0 +1,25 @@
+
+public class StuCommon {
+	//번호를 기준으로 오름차순 정렬
+	
+	//점수최대
+	Student totMax(Student stu[], int cnt) {
+		Student stuMax = stu[0];
+		for(int i=1; i<cnt;i++) {
+			if(stuMax.tot < stu[i].tot) {
+				stuMax = stu[i];
+			}
+		}
+		return stuMax;
+	}
+	//점수최소
+	Student totMin(Student stu[], int cnt) {
+		Student stuMin = stu[0];
+		for(int i=1; i<cnt;i++) {
+			if(stuMin.tot > stu[i].tot) {
+				stuMin = stu[i];
+			}
+		}
+		return stuMin;
+	
+}

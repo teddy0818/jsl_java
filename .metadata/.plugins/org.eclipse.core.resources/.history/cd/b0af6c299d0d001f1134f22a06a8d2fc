@@ -1,0 +1,20 @@
+import java.util.Scanner;
+
+public class Exam_01 {
+	public static void main(String[] args) {
+		Scanner scn = new Scanner(System.in);
+		int score[] = new int[10];
+		//입력
+		for(int i=0; i<score.length;i++) {
+			System.out.print("data " + (i+1));
+			score[i] = scn.nextInt();
+		}
+		//출력
+		System.out.print("Input Data : ");
+		for(int i=0; i<score.length;i++) {
+			System.out.printf("%3d", score[i]);
+		}
+		System.out.println();
+	}
+
+}

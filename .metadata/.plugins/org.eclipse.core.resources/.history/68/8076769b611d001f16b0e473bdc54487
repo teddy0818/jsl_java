@@ -1,0 +1,28 @@
+import java.util.Scanner;
+
+public class Exam_05 {
+	public static void main(String[] args) {
+		Scanner scn = new Scanner(System.in);
+		Student stu[] = new Student[10];
+		int cnt;
+		for(cnt=0; cnt<stu.length;cnt++) {
+			System.out.print("학생등록:");
+			int bun = scn.nextInt();
+			if(bun==0) {
+				break;
+			}
+			String name = scn.next();
+			int kor = scn.nextInt();
+			int eng = scn.nextInt();
+			int mat = scn.nextInt();
+			stu[cnt] = new Student(bun,name,kor,eng,mat);
+			stu[cnt].account();
+		}
+		//출력
+		System.out.println("번호\t이름\t국어\t영어\t수학\t총점\t평균\t학점");
+		for(int i=0; i<cnt;i++) {
+			stu[i].print();
+		}
+	}
+
+}

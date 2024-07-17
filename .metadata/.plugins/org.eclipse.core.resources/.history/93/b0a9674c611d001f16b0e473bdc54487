@@ -1,0 +1,36 @@
+
+public class Student {
+	int bun;
+	String name;
+	int kor,eng,mat,tot;
+	double ave;
+	char grade;
+	public Student(){}
+	public Student(int bun,String name, int kor, int eng,int mat){
+		this.bun=bun;
+		this.name=name;
+		this.kor=kor;
+		this.eng=eng;
+		this.mat=mat;
+	}
+	void account() {
+		tot = kor+eng+mat;
+		ave = (int)(tot / 3.0 * 10 + 0.5)/10.;
+		grade='F';
+		if(ave>=90) {
+			grade='A';
+		}else if(ave>=80) {
+			grade='B';
+		}else if(ave>=70) {
+			grade='C';
+		}else if(ave>=60) {
+			grade='D';
+		}
+	}
+	void print() {
+		System.out.print(bun+"\t" + name + "\t");
+		System.out.print(kor+"\t" + eng + "\t");
+		System.out.print(mat+"\t" + tot + "\t");
+		System.out.print(ave+"\t" + grade + "\n");
+	}
+}

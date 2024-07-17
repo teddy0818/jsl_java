@@ -1,0 +1,17 @@
+//키보드로 번호, 이름, 국어, 영어, 수학 입력
+//번호 이름 국어 영어 수학 총점 평균
+
+public class Exam_09 {
+	public static void main(String[] args) {
+		Student st1 = new Student();
+		Student st2 = new Student();
+		System.out.println("번호\t이름\t국어\t영어\t수학\t총점\t평균");
+		st1.stuInput(1, "김학생", 90, 88, 75);
+		st1.totAve();
+		st1.stuOutput();
+		st2.stuInput(2, "이학생", 77,88,99);
+		st2.totAve();
+		st2.stuOutput();
+	}
+
+}

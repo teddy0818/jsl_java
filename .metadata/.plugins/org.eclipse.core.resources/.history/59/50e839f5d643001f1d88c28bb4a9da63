@@ -1,0 +1,18 @@
+package com.jslhrd.emp.main;
+
+import java.text.DecimalFormat;
+import java.util.List;
+import java.util.Scanner;
+
+import com.jslhrd.emp.model.EmpDAO;
+import com.jslhrd.emp.model.EmpDTO;
+
+public class Exam_02 {
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		int inputEno = scan.nextInt(); 
+		
+		
+	}
+
+}

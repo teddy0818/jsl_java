@@ -1,0 +1,33 @@
+import java.util.Scanner;
+
+public class Exam_07 {
+	public static void main(String[] args) {
+		Login log = new Login();
+		
+		Scanner scn = new Scanner(System.in);
+		System.out.print("회원가입:");
+		String name = scn.next();
+		String id = scn.next();
+		String pw = scn.next();
+		
+		int row = log.memJoin(name, id, pw);
+		if(row==0) {
+			System.out.println("회원가입실패");
+		}else {
+			System.out.println("회원가입가입되었습니다.");
+			System.out.println("이름 :" + log.name);
+			System.out.println("아이디 :" + log.id);
+			System.out.println("비번 : ****" );
+		}
+		//로그인 
+		String id="abcd";
+		String pw="1234";
+		log.memLogin(id, pw);
+		
+		//로그아웃
+		log.memLogout();
+		
+		
+	}
+
+}

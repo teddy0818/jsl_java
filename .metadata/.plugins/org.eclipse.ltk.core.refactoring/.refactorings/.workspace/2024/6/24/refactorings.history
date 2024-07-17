@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Delete 29 resources" deleteContents="true" description="Delete 29 resources" element1="/Alogorithm" element10="/Day_0425" element11="/Day_0426" element12="/Day_0429" element13="/Day_0430" element14="/Day_0503" element15="/Day_0507" element16="/Day_0508" element17="/Day_0509" element18="/Day_0513" element19="/Day_0514" element2="/Day_0415" element20="/Day_0516" element21="/Day_0517" element22="/Day_0520" element23="/Day_0521" element24="/Day_0522" element25="/Day_0523" element26="/Day_0524" element27="/Day_0527" element28="/Day_0528" element29="/Day_0529" element3="/Day_0416" element4="/Day_0417" element5="/Day_0418" element6="/Day_0419" element7="/Day_0422" element8="/Day_0423" element9="/Day_0424" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="29" stamp="1717978041392"/>
+</session>

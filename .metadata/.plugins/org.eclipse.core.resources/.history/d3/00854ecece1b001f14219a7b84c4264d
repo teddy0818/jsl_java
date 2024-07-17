@@ -1,0 +1,24 @@
+
+public class Login {
+	//속성(멤버변수):인스턴스변수
+	String name;//이름
+	String id;//아이디
+	String pw;//비번
+	//회원가입하기
+	int memJoin(String n, String i, String p) {
+		if(n.equals("") || i.equals("") || p.equals("")){
+			//System.out.print("오류");
+			return 0;
+		}
+		name = n;
+		id = i;
+		pw = p;
+		return 1;
+	}
+	
+	
+	
+	
+	
+	
+}
