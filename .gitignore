@@ -35,3 +35,4 @@ build/
 # 기타
 .vscode/
 *.swp
+/.metadata/
