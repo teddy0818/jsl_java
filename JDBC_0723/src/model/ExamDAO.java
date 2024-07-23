@@ -61,6 +61,7 @@ public class ExamDAO {
 				pstmt.setString(2, dto.getCityname());
 				
 				row = pstmt.executeUpdate();
+				conn.commit();
 				
 			}catch(Exception e) {
 				e.printStackTrace();
