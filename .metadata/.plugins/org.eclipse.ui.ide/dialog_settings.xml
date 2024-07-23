@@ -21,6 +21,7 @@
 		<item key="WizardProjectsImportPage.STORE_CLOSE_CREATED_PROJECTS_ID" value="false"/>
 		<item key="WizardProjectsImportPage.STORE_HIDE_CONFLICTING_PROJECTS_ID" value="false"/>
 		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+			<item value="/Users/byeongjinhwang/Documents/dev/jsl_java_workspace/JDBC_0718"/>
 			<item value="/Users/byeongjinhwang/Documents/dev/jsl_java_workspace/JDBC_0716"/>
 			<item value="/Users/byeongjinhwang/Documents/dev/jsl_java_workspace/Day_0702"/>
 			<item value="/Users/byeongjinhwang/Documents/dev/jsl_java_workspace/Day_0701"/>
@@ -29,9 +30,9 @@
 			<item value=""/>
 		</list>
 		<section name="ExternalProjectImportWizard.dialogBounds">
-			<item key="DIALOG_X_ORIGIN" value="426"/>
+			<item key="DIALOG_X_ORIGIN" value="427"/>
 			<item key="DIALOG_Y_ORIGIN" value="114"/>
-			<item key="DIALOG_WIDTH" value="589"/>
+			<item key="DIALOG_WIDTH" value="586"/>
 			<item key="DIALOG_HEIGHT" value="703"/>
 			<item key="DIALOG_FONT_NAME" value="1|.AppleSystemUIFont|11.0|0|COCOA|1|.AppleSystemUIFont"/>
 		</section>
