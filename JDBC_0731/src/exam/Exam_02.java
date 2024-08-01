@@ -8,7 +8,7 @@ import model.ScoreDTO;
 
 public class Exam_02 {
 	public static void main(String[] args) {
-		  Scanner scn = new Scanner(System.in);
+		    Scanner scn = new Scanner(System.in);
 	        ScoreDAO dao = new ScoreDAO();
 	        ScoreDTO dto = new ScoreDTO();
 	        
@@ -38,18 +38,14 @@ public class Exam_02 {
 	            System.out.println("학년\t반\t번호\t국어\t영어\t수학\t총점\t평균");
 	           
             	for (ScoreDTO dto2 : list) {
-            	    // 성적 정보
             	    int kor = dto2.getKor();
             	    int eng = dto2.getEng();
             	    int mat = dto2.getMat();
             	    
-            	    // 총점과 평균 점수 계산
             	    int total = kor + eng + mat;
             	    double average = total / 3.0;
-            	    // 소수점 둘째 자리에서 반올림하여 첫째 자리까지 표시
             	    double roundedAverage = Math.round(average * 10) / 10.0;
             	    
-            	    // 출력
             	    System.out.print(dto2.getSyear() + "\t");
             	    System.out.print(dto2.getSclass() + "\t");
             	    System.out.print(dto2.getSno() + "\t");

@@ -21,7 +21,6 @@ public class ScoreDAO {
 		return conn;
 	}
 	
-	// 성적 등록 메서드
     public int scoreWrite(ScoreDTO dto) {
         Connection conn = null;
         PreparedStatement pstmt = null;
@@ -30,19 +29,19 @@ public class ScoreDAO {
                    + "VALUES (?, ?, ?, ?, ?, ?)";
         
         try {
-            conn = getConnection(); // 데이터베이스 연결
+            conn = getConnection(); 
             pstmt = conn.prepareStatement(sql);
-            pstmt.setString(1, dto.getSyear());    // 학년
-            pstmt.setString(2, dto.getSclass());   // 반
-            pstmt.setString(3, dto.getSno());      // 번호
-            pstmt.setInt(4, dto.getKor());         // 국어 점수
-            pstmt.setInt(5, dto.getEng());         // 영어 점수
-            pstmt.setInt(6, dto.getMat());         // 수학 점수
+            pstmt.setString(1, dto.getSyear());    
+            pstmt.setString(2, dto.getSclass());  
+            pstmt.setString(3, dto.getSno());      
+            pstmt.setInt(4, dto.getKor());         
+            pstmt.setInt(5, dto.getEng());        
+            pstmt.setInt(6, dto.getMat());        
             
-            row = pstmt.executeUpdate();  // 쿼리 실행
+            row = pstmt.executeUpdate();  
             
         } catch (SQLException e) {
-            e.printStackTrace();  // 예외 처리
+            e.printStackTrace();  
         } finally {
             // 자원 반환
             try {
@@ -52,7 +51,7 @@ public class ScoreDAO {
                 e.printStackTrace();
             }
         }
-        return row; // 삽입된 행의 수 반환
+        return row; 
     }
 	 
     public List<ScoreDTO> scoreList() {
@@ -69,18 +68,18 @@ public class ScoreDAO {
             
             while (rs.next()) {
                 ScoreDTO dto = new ScoreDTO();
-                dto.setSyear(rs.getString("syear"));   // 학년
-                dto.setSclass(rs.getString("sclass"));  // 반
-                dto.setSno(rs.getString("sno"));       // 번호
-                dto.setKor(rs.getInt("kor"));          // 국어 점수
-                dto.setEng(rs.getInt("eng"));          // 영어 점수
-                dto.setMat(rs.getInt("mat"));          // 수학 점수
+                dto.setSyear(rs.getString("syear"));   
+                dto.setSclass(rs.getString("sclass"));
+                dto.setSno(rs.getString("sno"));       
+                dto.setKor(rs.getInt("kor"));          
+                dto.setEng(rs.getInt("eng"));        
+                dto.setMat(rs.getInt("mat"));        
 
-                list.add(dto); // 리스트에 추가
+                list.add(dto); 
             }
             
         } catch (SQLException e) {
-            e.printStackTrace();  // 예외 처리
+            e.printStackTrace(); 
         } finally {
             // 자원 반환
             try {
@@ -91,7 +90,7 @@ public class ScoreDAO {
                 e.printStackTrace();
             }
         }
-        return list; // 조회된 성적 정보 리스트 반환
+        return list; 
     }
 
 }

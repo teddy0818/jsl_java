@@ -33,24 +33,23 @@ public class StudentDAO {
                    + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
         
         try {
-            conn = getConnection(); // 데이터베이스 연결 메서드 호출
+            conn = getConnection(); 
             pstmt = conn.prepareStatement(sql);
-            pstmt.setString(1, dto.getSyear());    // 학년
-            pstmt.setString(2, dto.getSclass());   // 반
-            pstmt.setString(3, dto.getSno());      // 번호
-            pstmt.setString(4, dto.getSname());    // 이름
-            pstmt.setString(5, dto.getBirth());    // 생년월일
-            pstmt.setString(6, dto.getGender());   // 성별
-            pstmt.setString(7, dto.getTel1());     // 전화1
-            pstmt.setString(8, dto.getTel2());     // 전화2
-            pstmt.setString(9, dto.getTel3());     // 전화3
+            pstmt.setString(1, dto.getSyear()); 
+            pstmt.setString(2, dto.getSclass());
+            pstmt.setString(3, dto.getSno());    
+            pstmt.setString(4, dto.getSname()); 
+            pstmt.setString(5, dto.getBirth());    
+            pstmt.setString(6, dto.getGender());
+            pstmt.setString(7, dto.getTel1());     
+            pstmt.setString(8, dto.getTel2());    
+            pstmt.setString(9, dto.getTel3());    
             
-            row = pstmt.executeUpdate();  // 쿼리 실행
+            row = pstmt.executeUpdate();  
             
         } catch (Exception e) {
-            e.printStackTrace();  // 예외 처리
+            e.printStackTrace();  
         } finally {
-            // 자원 반환
             try {
                 if (rs != null) rs.close();
                 if (pstmt != null) pstmt.close();
@@ -59,11 +58,9 @@ public class StudentDAO {
                 e.printStackTrace();
             }
         }
-        return row; // 삽입된 행의 수 반환
+        return row; 
     }
-    
-
-    // 전체 학생 정보 조회 메서드
+   
     public List<StudentDTO> getAllStudents() {
         Connection conn = null;
         PreparedStatement pstmt = null;
@@ -79,6 +76,7 @@ public class StudentDAO {
             rs = pstmt.executeQuery();
             while (rs.next()) {
                 StudentDTO dto = new StudentDTO();
+                
                 dto.setSyear(rs.getString("syear"));
                 dto.setSclass(rs.getString("sclass"));
                 dto.setSno(rs.getString("sno"));
@@ -88,6 +86,7 @@ public class StudentDAO {
                 dto.setTel1(rs.getString("tel1"));
                 dto.setTel2(rs.getString("tel2"));
                 dto.setTel3(rs.getString("tel3"));
+                
                 studentList.add(dto);
             }
         } catch (SQLException e) {
@@ -116,28 +115,26 @@ public class StudentDAO {
 
         try {
             conn = getConnection();
-            conn.setAutoCommit(false); // 트랜잭션 시작
+            conn.setAutoCommit(false); 
 
-            // 성적 정보 삭제
             pstmt1 = conn.prepareStatement(deleteScoresSql);
             pstmt1.setString(1, syear);
             pstmt1.setString(2, sclass);
             pstmt1.setString(3, sno);
             rowsAffected += pstmt1.executeUpdate();
 
-            // 학생 데이터 삭제
             pstmt2 = conn.prepareStatement(deleteStudentSql);
             pstmt2.setString(1, syear);
             pstmt2.setString(2, sclass);
             pstmt2.setString(3, sno);
             rowsAffected += pstmt2.executeUpdate();
 
-            conn.commit(); // 트랜잭션 커밋
+            conn.commit(); 
 
         } catch (SQLException e) {
             e.printStackTrace();
             try {
-                if (conn != null) conn.rollback(); // 예외 발생 시 트랜잭션 롤백
+                if (conn != null) conn.rollback(); 
             } catch (SQLException ex) {
                 ex.printStackTrace();
             }
@@ -153,5 +150,73 @@ public class StudentDAO {
         }
 
         return rowsAffected;
+    }
+    
+    public List<StudentDTO> getAllStudentInfo() {
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+        List<StudentDTO> studentList = new ArrayList<>();
+
+        String sql = "SELECT \n"
+        		+ "    s.syear,\n"
+        		+ "    s.sclass,\n"
+        		+ "    s.sno,\n"
+        		+ "    s.sname,\n"
+        		+ "    CASE s.gender\n"
+        		+ "        WHEN 'M' THEN '남'\n"
+        		+ "        WHEN 'F' THEN '여'\n"
+        		+ "        ELSE '기타'\n"
+        		+ "    END AS gender,\n"
+        		+ "    sc.kor AS kor,\n"
+        		+ "    sc.eng AS eng,\n"
+        		+ "    sc.mat AS math,\n"
+        		+ "    (sc.kor + sc.eng + sc.mat) AS tot,\n"
+        		+ "    ROUND((sc.kor + sc.eng + sc.mat) / 3.0, 1) AS avg\n"
+        		+ "FROM \n"
+        		+ "    tbl_student_201905 s\n"
+        		+ "JOIN \n"
+        		+ "    tbl_score_201905 sc\n"
+        		+ "ON \n"
+        		+ "    s.syear = sc.syear\n"
+        		+ "    AND s.sclass = sc.sclass\n"
+        		+ "    AND s.sno = sc.sno\n"
+        		+ "ORDER BY \n"
+        		+ "    s.syear, s.sclass, s.sno";
+
+        try {
+            conn = getConnection();
+            pstmt = conn.prepareStatement(sql);
+
+            rs = pstmt.executeQuery();
+            while (rs.next()) {
+                StudentDTO dto = new StudentDTO();
+                
+                dto.setSyear(rs.getString("syear"));
+                dto.setSclass(rs.getString("sclass"));
+                dto.setSno(rs.getString("sno"));
+                dto.setSname(rs.getString("sname"));
+                dto.setGender(rs.getString("gender"));
+                dto.setKor(rs.getInt("kor"));
+                dto.setEng(rs.getInt("eng"));
+                dto.setMath(rs.getInt("math"));
+                dto.setTot(rs.getInt("tot"));
+                dto.setAvg(rs.getDouble("avg"));
+                
+                studentList.add(dto);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (rs != null) rs.close();
+                if (pstmt != null) pstmt.close();
+                if (conn != null) conn.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
+        return studentList;
     }
 }

@@ -1,17 +1,22 @@
 package model;
 
 public class StudentDTO {
-	 private String syear;     // 학년
-	    private String sclass;    // 반
-	    private String sno;       // 번호
-	    private String sname;     // 이름
-	    private String birth;     // 생년월일
-	    private String gender;    // 성별
-	    private String tel1;      // 전화1
-	    private String tel2;      // 전화2
-	    private String tel3;      // 전화3
-
-	    // Getter 및 Setter 메서드
+	 private String syear;     
+	    private String sclass; 
+	    private String sno;      
+	    private String sname;    
+	    private String birth;     
+	    private String gender; 
+	    private String tel1;      
+	    private String tel2;    
+	    private String tel3;    
+	    
+	    private int kor;
+	    private int eng;
+	    private int math;
+	    private int tot;
+	    private Double avg;
+	   
 
 	    public String getSyear() {
 	        return syear;
@@ -84,4 +89,46 @@ public class StudentDTO {
 	    public void setTel3(String tel3) {
 	        this.tel3 = tel3;
 	    }
+
+		public int getKor() {
+			return kor;
+		}
+
+		public void setKor(int kor) {
+			this.kor = kor;
+		}
+
+		public int getEng() {
+			return eng;
+		}
+
+		public void setEng(int eng) {
+			this.eng = eng;
+		}
+
+		public int getMath() {
+			return math;
+		}
+
+		public void setMath(int math) {
+			this.math = math;
+		}
+
+		public int getTot() {
+			return tot;
+		}
+
+		public void setTot(int tot) {
+			this.tot = tot;
+		}
+
+		public double getAvg() {
+			return avg;
+		}
+
+		public void setAvg(double avg) {
+			this.avg = avg;
+		}
+	    
+	    
 }

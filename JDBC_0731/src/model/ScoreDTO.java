@@ -1,14 +1,12 @@
 package model;
 
 public class ScoreDTO {
-	private String syear;   // 학년
-    private String sclass;  // 반
-    private String sno;     // 번호
-    private int kor;        // 국어 점수
-    private int eng;        // 영어 점수
-    private int mat;        // 수학 점수
-
-    // Getter 및 Setter 메서드
+	private String syear;   
+    private String sclass;  
+    private String sno;   
+    private int kor;        
+    private int eng;        
+    private int mat;        
 
     public String getSyear() {
         return syear;
