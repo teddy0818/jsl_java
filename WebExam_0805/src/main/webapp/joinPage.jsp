@@ -1,108 +1,114 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
- <%@ page import = "java.util.*" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>회원가입</title>
-</head>
+<title>Insert title here</title>
 <style>
-	table {
-		border: 1px black solid;
-		border-collapse:  collapse;
-		margin: 0 auto;
-	}
-	td {
-		border: 1px black solid;
-		border-collapse:  collapse;
-		height: 30px;
-	}
-	#tableName {
-		background-color: yellow;
-		font-weight: 800;
-	}
+	table { width:500px; border:1px solid #222;	margin:0 auto}
+	td { border:1px solid #222; padding : 5px;}
 </style>
+
+</head>
 <body>
+	<h1 align="center">회원 가입 페이지</h1>
+	<form name="joinForm" method="post" action="joinExam_ok.jsp">
 	<table>
-		<tr align="center" id="tableName">
-			<td colspan="2">회원 기본 정보</td>
 		<tr>
+			<td colspan="2" align="center">회원 기본 정보</td>
+		</tr>
 		<tr>
 			<td>사용자이름</td>
-			<td><input type="text"></td>
-		<tr>
+			<td><input type="text" name="name" id="name"></td>
+		</tr>
 		<tr>
 			<td>사용자아이디</td>
-			<td><input type="text"></td>
-		<tr>
+			<td><input type="text" name="userid" id="userid"></td>
+		</tr>
 		<tr>
 			<td>비밀번호</td>
-			<td><input type="text"></td>
-		<tr>
+			<td><input type="password" name="pass" id="pass"></td>
+		</tr>
 		<tr>
 			<td>비밀번호확인</td>
-			<td><input type="text"></td>
-		<tr>
+			<td><input type="password" name="repass" id="repass"></td>
+		</tr>
 		<tr>
 			<td>성별</td>
 			<td>
-					<input type="radio" /> 남자 
-					<input type="radio" /> 여자 
+				<input type="radio" name="gender" value="M">남자
+			    <input type="radio" name="gender" value="F">여자
 			</td>
-		<tr>
+		</tr>
 		<tr>
 			<td>연락처</td>
 			<td>
-				<select>
-				<option>010</option>
-				</select>
-				-
-				<input type="text">
-				-
-				<input type="text">
+				<select name="phone1">
+					<option value="010">010</option>
+					<option value="02">02</option>
+					<option value="031">031</option>
+					<option value="032">032</option>
+					<option value="042">042</option>
+					<option value="052">052</option>
+				</select> - 
+				<input type="text" name="phone2" size="4"> - 
+				<input type="text" name="phone3" size="4">
 			</td>
+		</tr>
 		<tr>
-		<tr>	
 			<td>이메일</td>
 			<td>
-			<input type="text">@<input type="text">
-			<select>
-				<option>직접 입력</option>
+				<input type="text" name="email1" size="10">@
+				<input type="text" name="email2" size="10">
+				<select name="emailchk">
+					<option>직접입력</option>
+					<option value="naver.com">naver.com</option>
+					<option value="nate.com">nate.com</option>
+					<option value="google.com">google.com</option>
 				</select>
 			</td>
 		</tr>
 		<tr>
 			<td>직업</td>
 			<td>
-				<select>
-						<option>직업을 선택하세요</option>
+				<select name="job">
+					<option>직업을 선택하세요</option>
+					<option value="영업">영업</option>
+					<option value="공무원">공무원</option>
+					<option value="회사원">회사원</option>
+					<option value="교.강사">교.강사</option>
+					<option value="학생">학생</option>
+					<option value="기타">기타</option>
 				</select>
 			</td>
 		</tr>
 		<tr>
+			<td>관심분야</td>
 			<td>
-				관심분야 
-			</td>
-			<td>
-				<input type="checkbox" /> 골프	
-				<input type="checkbox" /> 축구 
-				<input type="checkbox" /> 야구 
-				<input type="checkbox" /> 농구 
-				<input type="checkbox" /> 배구
+				<input type="checkbox" name="fa" value="골프">골프
+			    <input type="checkbox" name="fa" value="축구">축구
+			    <input type="checkbox" name="fa" value="야구">야구
+			    <input type="checkbox" name="fa" value="농구">농구
+			    <input type="checkbox" name="fa" value="배구">배구
 			</td>
 		</tr>
 		<tr>
 			<td>기타(한마디)</td>
-			<td><textarea></textarea></td>
-		</tr>
-		<tr align="center">
-			<td colspan="2">
-				<button>가입하기</button>
-				<button>돌아가기</button>
+			<td>
+				<textarea name="intro" cols="40" rows="5"></textarea>
 			</td>
 		</tr>
+		<tr>
+			<td colspan="2" align="center">
+				<input type="submit" value="가입하기1" >&nbsp;&nbsp;
+				<input type="button" value="가입하기2" >&nbsp;&nbsp;
+				<input type="reset" value="다시쓰기"> &nbsp;&nbsp;
+				<input type="button" value="돌아가기">
+			</td>
+		</tr>		
 	</table>
-	
+	</form>
+
 </body>
 </html>
